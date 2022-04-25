@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+body{
+    background-color: antiquewhite;
+}
+#app{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    padding: 15px;
+    gap: 30px;
+    animation: show 0.4s ease-in;
+}
+#app div{
+    position: relative;
+}
+#app div img{
+    height: 24px;
+    top: 5px;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+.note, .add-note, .delete-all{
+    width: 200px;
+    border: 0;
+    border-radius: 20px;
+    outline: 0;
+    height: 200px;
+}
+.note{
+    resize: none;
+    padding: 30px 10px 0;
+    font-size: 16px;
+}
+.add-note{
+    font-size: 120px;
+    background: rgba(106, 252, 138, 0.452);
+    transition: 0.5s;
+    font-family: 'Open-sans';
+    user-select: none;
+    cursor: pointer;
+}
+.add-note:hover{
+    background: rgb(106, 252, 138);
+    transform:rotate(45deg) scale(0.6);
+}
+.delete-all{
+    background:rgba(255, 205, 205, 0.815);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.4s;
+}
+.delete-all:hover{
+    background: rgb(255, 155, 155);
+}
+.delete-all img{
+    transition: 0.4s;
+}
+.delete-all img:last-child{
+    height: 0;
+    transform: scale(0);
+}
+.delete-all:hover img:last-child{
+    transform: scale(1) rotate(360deg);
+    height: 116px;
+}
+.delete-all img:first-child{
+    transform: scale(1) rotate(-360deg);
+    height:100px;
+}
+.delete-all:hover img:first-child{
+    transform: scale(0);
+    height: 0;
+}
+.change{
+    display: none;
+    width: fit-content;
+    justify-content: center;
+    position: absolute;
+}
+.change p{
+    font-size: 20px;
+    padding: 0px 5px;
+    background:rgba(106, 252, 138, 0.356);
+}
+.change p:nth-child(1){
+    border-radius: 10px 0 0 10px;
+}
+.change p:nth-child(2){
+    border-right: 2px solid rgba(184, 135, 11, 0.6);
+    border-left: 2px solid rgba(184, 135, 11, 0.6);
+}
+.change p:hover{
+    cursor: pointer;
+    background: rgb(106, 252, 138);
+}
+select{
+    border: 0;
+    outline: 0;
+    font-size: 12px;
+}
+@media screen and (min-width:600px) {
+    @keyframes show{
+        0%{
+            transform: translateY(30px);
+            opacity:0.2;
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+}
+@media screen and (max-width:480px) {
+    #app{
+        justify-content: center;
+    }
+    .add-note{
+        position: fixed;
+        font-size: 2em;
+        height: 40px;
+        right: 10px;
+        width: 60px;
+        top: 50px;
+    }
+    .delete-all{
+        position: fixed;
+        font-size: 2em;
+        height: 50px;
+        right: 10px;
+        top: 100px;
+        width: 60px;
+        transition: 0.3s linear;
+    }
+    .add-note:hover{
+        border: 0;
+        background: rgb(106, 252, 138);
+        transform:rotate(0) scale(1.1);
+    }
+    .delete-all:hover{
+        transform: scale(1.1);
+    }
+    .delete-all img:first-child{
+        height: 30px;
+    }
+    .delete-all:hover img:last-child{
+        height: 36px;
+    }
+}
