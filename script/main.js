@@ -26,7 +26,7 @@ function createNoteElement(id, content) {
   const container = document.createElement('div'),
         element = document.createElement('textarea'),
         closeIcon = document.createElement("img");
-  closeIcon.src = '/icons/close.png';
+  closeIcon.src = 'icons/close.png';
   container.classList.add('container');
  
   container.appendChild(element);
@@ -95,4 +95,3 @@ function deleteAllNotes(){
 
 if(document.cookie === "") addNote()
 document.cookie = "user=visited; max-age=3600";
-
